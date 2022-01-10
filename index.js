@@ -10,10 +10,13 @@ const {
 let employees = [];
 
 const init = async () => {
-  const answers = await inquirer.prompt(employeeQuestions);
-  //   if (answers.role)
-  console.log(employeeQuestions);
-  console.log('Successfully created your professional README!');
+  const { name, id, email, role } = await inquirer.prompt(employeeQuestions);
+  let github;
+  if (role === 'engineer') {
+    ({ github } = await inquirer.prompt(engineerQuestions));
+  }
+  console.log({ name, id, email, role, github });
+  console.log('Successfully created your employee list!');
 };
 
 // initialize app
