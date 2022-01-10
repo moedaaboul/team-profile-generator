@@ -46,9 +46,18 @@ const managerQuestions = [
   },
 ];
 
+const furtherActionQuestions = [
+  {
+    type: 'confirm',
+    message: 'Would you like to exit or continue adding an employee',
+    name: 'action',
+  },
+];
+
 module.exports = {
   employeeQuestions,
   engineerQuestions,
   internQuestions,
   managerQuestions,
+  furtherActionQuestions,
 };

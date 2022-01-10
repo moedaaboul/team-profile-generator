@@ -5,6 +5,7 @@ const {
   engineerQuestions,
   internQuestions,
   managerQuestions,
+  furtherActionQuestions,
 } = require('./src/questions');
 
 const { Engineer, Intern, Manager } = require('./lib');
@@ -31,9 +32,15 @@ const init = async () => {
     obj = new Manager(name, id, email, officeNumber);
   }
 
-  // console.log({ name, id, email, role, github });
-  console.log(obj);
-  console.log(obj.getRole());
+  employees.push(obj);
+
+  const { action } = await inquirer.prompt(furtherActionQuestions);
+  if (action) {
+    await init();
+    return employees;
+  }
+  console.log(employees);
+  return employees;
   console.log('Successfully created your employee list!');
 };
 
