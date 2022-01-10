@@ -22,7 +22,7 @@ const employeeQuestions = [
   },
 ];
 
-const engineerQuestions = [
+const engineerQuestion = [
   {
     type: 'input',
     message: 'What is your github account name?',
@@ -30,7 +30,7 @@ const engineerQuestions = [
   },
 ];
 
-const internQuestions = [
+const internQuestion = [
   {
     type: 'input',
     message: 'What is your school name?',
@@ -38,7 +38,7 @@ const internQuestions = [
   },
 ];
 
-const managerQuestions = [
+const managerQuestion = [
   {
     type: 'input',
     message: 'What is your office number?',
@@ -46,7 +46,7 @@ const managerQuestions = [
   },
 ];
 
-const furtherActionQuestions = [
+const furtherActionQuestion = [
   {
     type: 'confirm',
     message: 'Would you like to exit or continue adding an employee',
@@ -56,8 +56,8 @@ const furtherActionQuestions = [
 
 module.exports = {
   employeeQuestions,
-  engineerQuestions,
-  internQuestions,
-  managerQuestions,
-  furtherActionQuestions,
+  engineerQuestion,
+  internQuestion,
+  managerQuestion,
+  furtherActionQuestion,
 };

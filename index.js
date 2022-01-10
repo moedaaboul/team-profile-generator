@@ -2,17 +2,17 @@ const inquirer = require('inquirer');
 
 const {
   employeeQuestions,
-  engineerQuestions,
-  internQuestions,
-  managerQuestions,
-  furtherActionQuestions,
+  engineerQuestion,
+  internQuestion,
+  managerQuestion,
+  furtherActionQuestion,
 } = require('./src/questions');
 
 const { Engineer, Intern, Manager } = require('./lib');
 
 let employees = [];
 
-const init = async () => {
+const runQuestions = async () => {
   const { name, id, email, role } = await inquirer.prompt(employeeQuestions);
   let github;
   let school;
@@ -20,27 +20,45 @@ const init = async () => {
   let obj;
   let inProgress = true;
   if (role === 'engineer') {
-    ({ github } = await inquirer.prompt(engineerQuestions));
+    ({ github } = await inquirer.prompt(engineerQuestion));
     obj = new Engineer(name, id, email, github);
   }
   if (role === 'intern') {
-    ({ school } = await inquirer.prompt(internQuestions));
+    ({ school } = await inquirer.prompt(internQuestion));
     obj = new Intern(name, id, email, school);
   }
   if (role === 'manager') {
-    ({ officeNumber } = await inquirer.prompt(managerQuestions));
+    ({ officeNumber } = await inquirer.prompt(managerQuestion));
     obj = new Manager(name, id, email, officeNumber);
   }
 
   employees.push(obj);
 
-  const { action } = await inquirer.prompt(furtherActionQuestions);
+  const { action } = await inquirer.prompt(furtherActionQuestion);
   if (action) {
-    await init();
-    return employees;
+    await runQuestions();
   }
-  console.log(employees);
   return employees;
+};
+
+const init = async () => {
+  const employees = await runQuestions();
+  const string = employees.forEach((e) => {
+    console.log('-----------');
+    console.log(e.name);
+    console.log(e.getRole());
+    console.log(`ID: ${e.id}`);
+    console.log(`Email: ${e.email}`);
+    if (e.getRole() === 'Engineer') {
+      console.log(e.getGithub());
+    }
+    if (e.getRole() === 'Intern') {
+      console.log(e.getSchool());
+    }
+    if (e.getRole() === 'Manager') {
+      console.log(e.officeNumber);
+    }
+  });
   console.log('Successfully created your employee list!');
 };
 
