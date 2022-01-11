@@ -1,4 +1,8 @@
 const inquirer = require('inquirer');
+const writeToFile = require('./src/file');
+const css = require('./src/css');
+const generateCard = require('./src/card');
+const renderHtml = require('./src/renderHtml');
 
 const {
   employeeQuestions,
@@ -18,7 +22,7 @@ const runQuestions = async () => {
   let school;
   let officeNumber;
   let obj;
-  let inProgress = true;
+  // let inProgress = true;
   if (role === 'engineer') {
     ({ github } = await inquirer.prompt(engineerQuestion));
     obj = new Engineer(name, id, email, github);
@@ -59,6 +63,16 @@ const init = async () => {
       console.log(e.officeNumber);
     }
   });
+  const cards = employees
+    .map((e) => {
+      return generateCard(e.name, e.id, e.email, e.getIcon(), e.getRole());
+    })
+    .join('');
+  console.log(cards);
+  const html = renderHtml(cards);
+  console.log(html);
+  writeToFile('./dist/index.html', html);
+  writeToFile('./dist/styles.css', css);
   console.log('Successfully created your employee list!');
 };
 

@@ -3,18 +3,18 @@ const generateCard = (
   id,
   email,
   icon,
-  role,
-  github,
-  school,
-  officeNumber
+  role
+  //   github,
+  //   school,
+  //   officeNumber
 ) => {
   let roleString;
   if (role === 'Manager') {
-    roleString = `Office Number: ${officeNumber}`;
+    roleString = `Office Number: OFFICE NUMBER`;
   } else if (role === 'Engineer') {
-    roleString = `Github: ${github}`;
+    roleString = `Github: GITHUB ACCOUNT`;
   } else if (role === 'Intern') {
-    roleString = `School: ${school}`;
+    roleString = `School: SCHOOL NAME`;
   }
   const cardString = `        <div class="column is-4">
 <div class="card">
