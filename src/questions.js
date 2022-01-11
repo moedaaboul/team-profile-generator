@@ -1,28 +1,42 @@
-const employeeQuestions = [
+const managerQuestions = [
   {
     type: 'input',
-    message: 'What is your employee name?',
+    message: 'Enter the team manager name',
     name: 'name',
   },
   {
     type: 'input',
-    message: 'What is your employee id?',
+    message: 'Enter the manager employee ID',
     name: 'id',
   },
   {
     type: 'input',
-    message: 'What is your employee email',
+    message: 'Enter the manager email address',
     name: 'email',
   },
   {
-    type: 'list',
-    message: 'What is your employee role',
-    name: 'role',
-    choices: ['engineer', 'intern', 'manager'],
+    type: 'input',
+    message: 'What the manager office number',
+    name: 'officeNumber',
   },
 ];
 
-const engineerQuestion = [
+const engineerQuestions = [
+  {
+    type: 'input',
+    message: 'Enter the employee name',
+    name: 'name',
+  },
+  {
+    type: 'input',
+    message: 'Enter the employee ID',
+    name: 'id',
+  },
+  {
+    type: 'input',
+    message: 'Enter the employee email address',
+    name: 'email',
+  },
   {
     type: 'input',
     message: 'What is your github account name?',
@@ -30,7 +44,22 @@ const engineerQuestion = [
   },
 ];
 
-const internQuestion = [
+const internQuestions = [
+  {
+    type: 'input',
+    message: 'Enter the employee name',
+    name: 'name',
+  },
+  {
+    type: 'input',
+    message: 'Enter the employee ID',
+    name: 'id',
+  },
+  {
+    type: 'input',
+    message: 'Enter the employee email address',
+    name: 'email',
+  },
   {
     type: 'input',
     message: 'What is your school name?',
@@ -38,26 +67,18 @@ const internQuestion = [
   },
 ];
 
-const managerQuestion = [
-  {
-    type: 'input',
-    message: 'What is your office number?',
-    name: 'officeNumber',
-  },
-];
-
 const furtherActionQuestion = [
   {
-    type: 'confirm',
-    message: 'Would you like to exit or continue adding an employee',
+    type: 'list',
+    message: 'Add an intern or engineer or exit the application',
     name: 'action',
+    choices: ['engineer', 'intern', 'exit'],
   },
 ];
 
 module.exports = {
-  employeeQuestions,
-  engineerQuestion,
-  internQuestion,
-  managerQuestion,
+  engineerQuestions,
+  internQuestions,
+  managerQuestions,
   furtherActionQuestion,
 };

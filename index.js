@@ -5,45 +5,15 @@ const generateCard = require('./src/card');
 const renderHtml = require('./src/renderHtml');
 
 const {
-  employeeQuestions,
-  engineerQuestion,
-  internQuestion,
-  managerQuestion,
+  engineerQuestions,
+  internQuestions,
+  managerQuestions,
   furtherActionQuestion,
 } = require('./src/questions');
 
 const { Engineer, Intern, Manager } = require('./lib');
 
 let employees = [];
-
-const runQuestions = async () => {
-  const { name, id, email, role } = await inquirer.prompt(employeeQuestions);
-  let github;
-  let school;
-  let officeNumber;
-  let obj;
-  // let inProgress = true;
-  if (role === 'engineer') {
-    ({ github } = await inquirer.prompt(engineerQuestion));
-    obj = new Engineer(name, id, email, github);
-  }
-  if (role === 'intern') {
-    ({ school } = await inquirer.prompt(internQuestion));
-    obj = new Intern(name, id, email, school);
-  }
-  if (role === 'manager') {
-    ({ officeNumber } = await inquirer.prompt(managerQuestion));
-    obj = new Manager(name, id, email, officeNumber);
-  }
-
-  employees.push(obj);
-
-  const { action } = await inquirer.prompt(furtherActionQuestion);
-  if (action) {
-    await runQuestions();
-  }
-  return employees;
-};
 
 const init = async () => {
   const employees = await runQuestions();
@@ -74,6 +44,36 @@ const init = async () => {
   writeToFile('./dist/index.html', html);
   writeToFile('./dist/styles.css', css);
   console.log('Successfully created your employee list!');
+};
+
+const runQuestions = async () => {
+  const { name, id, email, officeNumber } = await inquirer.prompt(
+    managerQuestions
+  );
+  let obj = new Manager(name, id, email, officeNumber);
+  employees.push(obj);
+  // console.log(obj);
+  // console.log(employees);
+  const finalArray = await runFurtherActionQuestion();
+  return finalArray;
+};
+
+const runFurtherActionQuestion = async () => {
+  let { action } = await inquirer.prompt(furtherActionQuestion);
+  // console.log(action);
+  if (action === 'intern') {
+    let { name, id, email, school } = await inquirer.prompt(internQuestions);
+    obj = new Intern(name, id, email, school);
+    employees.push(obj);
+    await runFurtherActionQuestion();
+  } else if (action === 'engineer') {
+    let { name, id, email, github } = await inquirer.prompt(engineerQuestions);
+    obj = new Engineer(name, id, email, github);
+    employees.push(obj);
+    await runFurtherActionQuestion();
+  }
+  // console.log(employees);
+  return employees;
 };
 
 // initialize app
