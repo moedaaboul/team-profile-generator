@@ -1,30 +1,24 @@
-const generateCard = (
-  name,
-  id,
-  email,
-  icon,
-  role
-  //   github,
-  //   school,
-  //   officeNumber
-) => {
+const { Engineer, Intern, Manager } = require('../lib');
+
+const generateCard = (e) => {
   let roleString;
+  let role = e.getRole();
   if (role === 'Manager') {
-    roleString = `Office Number: OFFICE NUMBER`;
+    roleString = `Office Number: ${e.getOfficeNumber()}`;
   } else if (role === 'Engineer') {
-    roleString = `Github: GITHUB ACCOUNT`;
+    roleString = `Github: ${e.getGithub()}`;
   } else if (role === 'Intern') {
-    roleString = `School: SCHOOL NAME`;
+    roleString = `School: ${e.getSchool()}`;
   }
   const cardString = `        <div class="column is-4">
 <div class="card">
   <div class="card-header is-flex-direction-column">
-    <p class="title is-4 ml-3">${name}</p>
+    <p class="title is-4 ml-3">${e.name}</p>
     <div class="is-flex is-align-items-center ml-3 mb-2 pt-1">
       <span class="icon">
-        <i class="fas ${icon}"></i>
+        <i class="fas ${e.getIcon()}"></i>
       </span>
-      <p class="ml-2">${role}</p>
+      <p class="ml-2">${e.getRole()}</p>
     </div>
   </div>
   <div class="card-content">
@@ -33,10 +27,10 @@ const generateCard = (
     >
       <tbody>
         <tr>
-          <td>ID: ${id}</td>
+          <td>ID: ${e.id}</td>
         </tr>
         <tr>
-          <td>Email: ${email}</td>
+          <td>Email: ${e.email}</td>
         </tr>
         <tr>
           <td>${roleString}</td>

@@ -65,12 +65,12 @@ const init = async () => {
   });
   const cards = employees
     .map((e) => {
-      return generateCard(e.name, e.id, e.email, e.getIcon(), e.getRole());
+      return generateCard(e);
     })
     .join('');
-  console.log(cards);
+  // console.log(cards);
   const html = renderHtml(cards);
-  console.log(html);
+  // console.log(html);
   writeToFile('./dist/index.html', html);
   writeToFile('./dist/styles.css', css);
   console.log('Successfully created your employee list!');
