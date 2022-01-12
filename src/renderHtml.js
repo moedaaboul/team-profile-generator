@@ -7,5 +7,3 @@ const renderHtml = (cards) => {
 };
 
 module.exports = renderHtml;
-
-// console.log(renderHtml(`Hello`));
