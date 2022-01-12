@@ -2,7 +2,7 @@ const Engineer = require('../lib/engineer.js');
 
 describe('Engineer', () => {
   describe('Initialization', () => {
-    it('should create an object with a "name", "id" and "email" if provided valid arguments', () => {
+    it('should create an object with a "name", "id", "email" if provided valid arguments', () => {
       const engineer = new Engineer(
         'Tom',
         1234,
