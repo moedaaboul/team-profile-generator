@@ -64,5 +64,15 @@ describe('Engineer', () => {
       );
       expect(engineer.getIcon()).toEqual('fa-glasses');
     });
+
+    it('should add a method getGithub()', () => {
+      const engineer = new Engineer(
+        'Tom',
+        1234,
+        'employee@email.com',
+        'github'
+      );
+      expect(engineer.getGithub()).toEqual('github');
+    });
   });
 });

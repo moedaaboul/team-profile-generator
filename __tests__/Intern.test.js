@@ -64,5 +64,15 @@ describe('Intern', () => {
       );
       expect(intern.getIcon()).toEqual('fa-user-graduate');
     });
+
+    it('should add a method getSchool()', () => {
+      const intern = new Intern(
+        'Tom',
+        1234,
+        'employee@email.com',
+        'Grammar School'
+      );
+      expect(intern.getSchool()).toEqual('Grammar School');
+    });
   });
 });
