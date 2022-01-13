@@ -73,7 +73,8 @@ Run test using:
 
 ## Features
 
-The app is also interactivity on mutliple screen size devices and powered by Bulma
+- App is interactive on mutliple screen sizes and powered by Bulma
+- isRequired and isEmail validators have been added
 
 ## Appearance
 
@@ -83,6 +84,7 @@ The app is also interactivity on mutliple screen size devices and powered by Bul
 
 -Text editor (VS Code recommended)
 -An Internet browser (Google Chrome recommended)
+-Nodejs must be installed
 
 ## Demo
 
