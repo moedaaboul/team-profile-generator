@@ -86,7 +86,7 @@ The app is also interactivity on mutliple screen size devices and powered by Bul
 
 ## Demo
 
-Refer to the demo in the link provided
+Demo link [_here_](https://drive.google.com/file/d/1KAaGDYgHObkcrLzAKw4rKIMEY04-3JRm/view).
 
 ## Acknowledgements
 
