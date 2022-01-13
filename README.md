@@ -88,7 +88,7 @@ Run test using:
 
 ## Demo
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1KAaGDYgHObkcrLzAKw4rKIMEY04-3JRm/view)
+[![Watch the video](./assets/my-video-player.png)](https://drive.google.com/file/d/1KAaGDYgHObkcrLzAKw4rKIMEY04-3JRm/view)
 
 ## Acknowledgements
 
