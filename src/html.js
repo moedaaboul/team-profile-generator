@@ -19,10 +19,10 @@ const openingString = `<!DOCTYPE html>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <section class="hero is-info is-bold">
+    <section class="hero mb-3 is-info is-bold">
       <div class="hero-body">
         <div class="container has-text-centered">
-          <h1 class="title">Team Profile</h1>
+          <h1 class="title">My Team</h1>
           <span></span>
           <span></span>
           <span></span>
