@@ -82,9 +82,9 @@ Run test using:
 
 ## Setup
 
--Text editor (VS Code recommended)
--An Internet browser (Google Chrome recommended)
--Nodejs must be installed
+- Text editor (VS Code recommended)
+- An Internet browser (Google Chrome recommended)
+- Nodejs must be installed
 
 ## Demo
 
